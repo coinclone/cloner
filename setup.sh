@@ -11,17 +11,17 @@ clear
 cat <<EOF
 --------
 You can either download the $(echo $COIN) prebuilt container from dockerhub
-or you can build it from the 'generator' template folder (perhaps if you
+or you can build it from the 'generate' template folder (perhaps if you
 have made modifications).
 --------
 
 EOF
-echo -n "Would you like to build the image locally from $COIN/generator?
+echo -n "Would you like to build the image locally from $COIN/generate?
 y/N: "
 
 read CHOICE
 if [ "${CHOICE,,}" == "y" ] || [ "${CHOICE,,}" == "yes" ]; then {
-    cd generator/ && \
+    cd generate/ && \
     bash setup.sh $COIN && \
     cd ..
     }

@@ -177,9 +177,9 @@ If you haven't already, clone the $(echo $COIN)clone git repo:
 
     git clone https://github.com/coinclone/$(echo $COIN)clone.git
 
-Move into '$(echo $COIN)clone/deployment_extention/', edit the '$(echo $COIN).conf' file to your specifications and build any class of container you want (miner, non-miner).
+Move into '$(echo $COIN)clone/deploy/', edit the '$(echo $COIN).conf' file to your specifications and build any class of container you want (miner, non-miner).
 
-    cd deployment_extention/
+    cd deploy/
 
     #vi $(echo $COIN).conf
     docker build -t coinclone/$(echo $COIN)clone:miner .  # $(echo $COIN).conf, gen=1

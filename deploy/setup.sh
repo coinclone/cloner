@@ -18,7 +18,7 @@ else {
     } fi
 
 # Setup now Dockerfile and build
-cat Dockerblank | sed "s/coinclone/$1/g" > Dockerfile
+cat config/Dockerblank | sed "s/blockchain/$1/g" > Dockerfile
 sed -i "s/\.coin/\.$1/g" Dockerfile
 #sed -i "s/coin_vars/$(echo $COIN)_vars/g" Dockerfile
 

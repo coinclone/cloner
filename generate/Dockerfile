@@ -2,9 +2,9 @@ FROM debian:jessie
 
 WORKDIR /root/
 
-COPY run.sh /root/
-COPY get_pub_key.py /root/
-COPY coin_settings/viacoin_vars.sh /root/coin_settings/viacoin_vars.sh
+COPY config/run.sh /root/
+COPY config/get_pub_key.py /root/
+#COPY coin_settings/bitcoin_vars.sh /root/coin_settings/bitcoin_vars.sh
 
 RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> /etc/apt/sources.list && \
     apt-get update && \
@@ -18,9 +18,9 @@ RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> 
     rm -rf /var/lib/apt/lists/* && \
     \
     cd $HOME && \
-    git clone https://github.com/coinclone/viacointemplate.git && \
+    git clone https://github.com/coinclone/bitcoin.git && \
     \
-    cd $HOME/viacointemplate && \
+    cd $HOME/bitcoin && \
     autoreconf --install && \
     aclocal && \
     automake --add-missing && \
@@ -28,4 +28,4 @@ RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> 
     make
 
 ENTRYPOINT ["bash", "/root/run.sh"]
-CMD ["viacoin"]
+CMD ["bitcoin"]
