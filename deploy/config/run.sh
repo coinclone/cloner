@@ -10,7 +10,7 @@ else {
     } fi
 
 # Capture the suggested rpcpassword paramiter from the uninitialised warning message
-$HOME/$COIN/src/$(echo $COIN)d -conf=/root/.$COIN/coin.conf 2> $HOME/credentials.txt || true && \
+$HOME/$COIN/src/${COIN}d -conf=/root/.$COIN/coin.conf 2> $HOME/credentials.txt || true && \
 grep rpcpassword= $HOME/credentials.txt >> $HOME/.$COIN/coin.conf && \
 echo "externalip=$(hostname -i)" >> $HOME/.$COIN/coin.conf
 
@@ -29,5 +29,5 @@ else {
     } fi
 
 # Start and connect to debug log
-$HOME/$COIN/src/$(echo $COIN)d -conf=$HOME/.$COIN/coin.conf &
+$HOME/$COIN/src/${COIN}d -conf=$HOME/.$COIN/coin.conf &
 tail -f $HOME/.$COIN/debug.log

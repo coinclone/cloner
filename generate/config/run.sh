@@ -65,14 +65,14 @@ clear
 
 cat <<EOF
 --------
-Mining $(echo $COIN) mainnet genesis block.
+Mining ${COIN} mainnet genesis block.
 Began mining $(date)
 
 This could take up to four hours, perhaps even longer depending on your hardware.
 --------
 EOF
 
-./$(echo $COIN)d > $HOME/mined_blocks/mainnet_info.txt
+./${COIN}d > $HOME/mined_blocks/mainnet_info.txt
 wait
 
 # Update mainnet genesis block paramiters
@@ -101,14 +101,14 @@ clear
 
 cat <<EOF
 --------
-Mining $(echo $COIN) testnet genesis block.
+Mining ${COIN} testnet genesis block.
 Began mining $(date)
 
 This could take up to four hours, perhaps even longer depending on your hardware.
 --------
 EOF
 
-./$(echo $COIN)d > $HOME/mined_blocks/testnet_info.txt
+./${COIN}d > $HOME/mined_blocks/testnet_info.txt
 wait
 
 # Update testnet genesis block paramiters
@@ -135,14 +135,14 @@ clear
 
 cat <<EOF
 --------
-Mining $(echo $COIN) regtestnet genesis block.
+Mining ${COIN} regtestnet genesis block.
 Began mining $(date)
 
 This could take up to four hours, perhaps even longer depending on your hardware.
 --------
 EOF
 
-./$(echo $COIN)d > $HOME/mined_blocks/regtestnet_info.txt
+./${COIN}d > $HOME/mined_blocks/regtestnet_info.txt
 wait
 
 # Update regtestnet genesis block paramiters
@@ -171,7 +171,7 @@ MESSAGE=
 RESULT=false
 while [ $RESULT != true ]; do {
     mine_genesis_blocks
-    $HOME/$COIN/src/$(echo $COIN)d
+    $HOME/$COIN/src/${COIN}d
 
     # Test for invalid genesis block
     if [ "$?" == "134" ]; then {
@@ -189,11 +189,11 @@ cat <<EOF
 Your new clone is ready to go.
 
 Next steps,
-Commit your new clone, be sure to save it as 'coinclone/$(echo $COIN):node'.
-In this example the container was named '$(echo $COIN)_seed':
+Commit your new clone, be sure to save it as 'coinclone/${COIN}:node'.
+In this example the container was named '${COIN}_seed':
 
-    docker commit $(echo $COIN)_seed coinclone/$(echo $COIN):node && \
-    docker rm $(echo $COIN)_seed
+    docker commit ${COIN}_seed coinclone/${COIN}:node && \
+    docker rm ${COIN}_seed
 
 If you haven't already, clone the cloner git repo:
 

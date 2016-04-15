@@ -10,7 +10,7 @@ else {
 clear
 cat <<EOF
 --------
-You can either download the $(echo $COIN) prebuilt container from dockerhub
+You can either download the ${COIN} prebuilt container from dockerhub
 or you can build it from the 'generate' template folder (perhaps if you
 have made modifications).
 --------
@@ -31,6 +31,6 @@ else {
     } fi
 
 # Pull the precompiled clone container, run it and save the result
-docker run -it --name $(echo $COIN)_seed coinclone/$COIN $COIN && \
-docker commit $(echo $COIN)_seed coinclone/$COIN:node && \
-docker rm $(echo $COIN)_seed
+docker run -it --name ${COIN}_seed coinclone/$COIN $COIN && \
+docker commit ${COIN}_seed coinclone/$COIN:node && \
+docker rm ${COIN}_seed

@@ -20,7 +20,7 @@ else {
 # Setup now Dockerfile and build
 cat config/Dockerblank | sed "s/blockchain/$1/g" > Dockerfile
 sed -i "s/\.coin/\.$1/g" Dockerfile
-#sed -i "s/coin_vars/$(echo $COIN)_vars/g" Dockerfile
+#sed -i "s/coin_vars/${COIN}_vars/g" Dockerfile
 
 #vi litecoin.conf
 docker build -t coinclone/$1:$2 .
@@ -29,7 +29,7 @@ wait
 # Spawn node instances
 n=0
 while [ $n -lt $i ]; do {
-    docker run -d --name $(echo $1)_$(echo $2)_$n -e COIN=$1 coinclone/$1:$2
+    docker run -d --name ${1}_${2}_$n -e COIN=$1 coinclone/$1:$2
     n=$(($n+1))
     } done
 
