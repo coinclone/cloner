@@ -15,7 +15,7 @@ Clone the repo and run the setup script.
 
 Once the genesis blocks have been mined you will find a new image inside your local repository named `coinclone/<blockchain>:node`. This is the base image for your nodes.
 
-Move into `<blockchain>/deploy/`, edit the `config/coin.conf` file to your specifications and build any class of container you want (miner, relay).
+Move into `cloner/deploy/`, edit the `config/coin.conf` file to your specifications and build any class of container you want (miner, relay).
 
     cd deploy/
 
