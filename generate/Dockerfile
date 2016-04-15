@@ -4,7 +4,6 @@ WORKDIR /root/
 
 COPY config/run.sh /root/
 COPY config/get_pub_key.py /root/
-#COPY coin_settings/bitcoin_vars.sh /root/coin_settings/bitcoin_vars.sh
 
 RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> /etc/apt/sources.list && \
     apt-get update && \
@@ -18,9 +17,9 @@ RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> 
     rm -rf /var/lib/apt/lists/* && \
     \
     cd $HOME && \
-    git clone https://github.com/coinclone/bitcoin.git && \
+    git clone https://github.com/coinclone/litecoin.git && \
     \
-    cd $HOME/bitcoin && \
+    cd $HOME/litecoin && \
     autoreconf --install && \
     aclocal && \
     automake --add-missing && \
@@ -28,4 +27,4 @@ RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> 
     make
 
 ENTRYPOINT ["bash", "/root/run.sh"]
-CMD ["bitcoin"]
+CMD ["litecoin"]

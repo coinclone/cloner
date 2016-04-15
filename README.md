@@ -1,9 +1,7 @@
 # cloner
 Spawn and distribute blockchain networks on the fly.
 
-debian, jessie  
-bitcoin, 0.10  
-size, ~440 MB
+debian, jessie
 
 ## Dependencies
 [git](https://git-scm.com/downloads "git client"), [docker](https://docs.docker.com/engine/installation/ "docker engine")
@@ -11,38 +9,33 @@ size, ~440 MB
 ## Instructions
 Clone the repo and run the setup script.
 
-    git clone https://github.com/coinclone/<blockchain>.git && \
-    cd <blockchain> && \
-    bash setup.sh
+    git clone https://github.com/coinclone/cloner.git && \
+    cd cloner && \
+    bash setup.sh <blockchain> 
 
 Once the genesis blocks have been mined you will find a new image inside your local repository named `coinclone/<blockchain>:node`. This is the base image for your nodes.
 
-Move into `<blockchain>/deploy/`, edit the `bitcoin.conf` file to your specifications and build any class of container you want (miner, relay).
+Move into `<blockchain>/deploy/`, edit the `config/coin.conf` file to your specifications and build any class of container you want (miner, relay).
 
     cd deploy/
 
-    #vi bitcoin.conf
-    docker build -t coinclone/<blockchain>:miner .  # bitcoin.conf, gen=1
+    #vi config/coin.conf
+    bash setup.sh <blockchain> <node_class> <number_of_instances>
 
-    #vi bitcoin.conf
-    docker build -t coinclone/<blockchain>:relay .  # bitcoin.conf, gen=0
-
-You do not need to configure the `rpcpassword` option in `bitcoin.conf`. It will be automatically appended at runtime.
+You do not need to configure the `rpcpassword` option in `config/coin.conf`. It will be automatically appended at runtime.
 
 Run at least two instances to establish a network. You may deploy as many instances as you wish.
 
-    docker run -d --name miner_1 coinclone/<blockchain>:miner && \
-    docker run -d --name relay_1 coinclone/<blockchain>:relay && \
-    docker logs -f --tail 20 relay_1
-
-    #docker run -d --name class_n coinclone/<blockchain>:class
+    bash setup.sh bitcoin miner 1 && \
+    sed -i 's/gen=1/gen=0/g' config/coin.conf && \
+    bash setup.sh bitcoin relay 1
 
 ![Example](http://s15.postimg.org/aaw1df6u3/network_ss.png)
 
 ## Important
 IP addresses are deterministic in docker and so each new instance is set to connect to its own IP address - 1. If it fails to receive a response it will connect to its own IP address + 1.
 
-You can add IP addresses manually in `deploy/bitcoin.conf`
+You can add IP addresses manually in `deploy/config/coin.conf`
 
 ## Donate
 If you like the project and would like to donate some of your time and expertise by contributing to the code base, that would be fantastic and very much appreciated.

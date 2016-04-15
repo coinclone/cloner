@@ -2,6 +2,13 @@
 
 #mkdir $HOME/.$COIN/
 
+if [ "$1" == "" ]; then {
+    COIN=bitcoin
+    }
+else {
+    COIN="$1"
+    } fi
+
 # Capture the suggested rpcpassword paramiter from the uninitialised warning message
 $HOME/$COIN/src/$(echo $COIN)d -conf=/root/.$COIN/coin.conf 2> $HOME/credentials.txt || true && \
 grep rpcpassword= $HOME/credentials.txt >> $HOME/.$COIN/coin.conf && \
