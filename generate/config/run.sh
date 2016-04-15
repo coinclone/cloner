@@ -179,7 +179,7 @@ while [ $RESULT != true ]; do {
         }
     else {
         RESULT=true
-        }
+        } fi
     } done
 
 # Closing statement
