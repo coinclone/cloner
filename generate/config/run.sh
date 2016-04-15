@@ -180,7 +180,7 @@ while [ $RESULT != true ]; do {
     else {
         RESULT=true
         }
-    }
+    } done
 
 # Closing statement
 clear
