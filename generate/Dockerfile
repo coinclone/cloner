@@ -4,6 +4,7 @@ WORKDIR /root/
 
 COPY config/run.sh /root/
 COPY config/get_pub_key.py /root/
+#COPY coin_settings/litecoin_vars.sh /root/coin_settings/litecoin_vars.sh
 
 RUN echo 'deb-src ftp://ftp.us.debian.org/debian/ sid main contrib non-free' >> /etc/apt/sources.list && \
     apt-get update && \
