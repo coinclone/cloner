@@ -64,6 +64,7 @@ cd $HOME/$COIN/src
 clear
 
 cat <<EOF
+${MESSAGE}
 --------
 Mining ${COIN} mainnet genesis block.
 Began mining $(date)
@@ -100,6 +101,7 @@ cd $HOME/$COIN/src
 clear
 
 cat <<EOF
+${MESSAGE}
 --------
 Mining ${COIN} testnet genesis block.
 Began mining $(date)
@@ -134,6 +136,7 @@ cd $HOME/$COIN/src
 clear
 
 cat <<EOF
+${MESSAGE}
 --------
 Mining ${COIN} regtestnet genesis block.
 Began mining $(date)
