@@ -174,7 +174,7 @@ MESSAGE=
 RESULT=false
 while [ $RESULT != true ]; do {
     mine_genesis_blocks
-    $HOME/$COIN/src/${COIN}d
+    $HOME/$COIN/src/${COIN}d 2> /dev/null
 
     # Test for invalid genesis block
     if [ "$?" == "134" ]; then {
