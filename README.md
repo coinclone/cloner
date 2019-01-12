@@ -42,5 +42,4 @@ If you like the project and would like to donate some of your time and expertise
 
 If you cannot produce code but would still like to contrubute, you can donate crypto to any of the addresses listed below which is also very much appreciated.
 
-Bitcoin - [14qQtzyUayEj97JhizmCqwYfovqL6uLtW](https://blockchain.info/address/14qQtzyUayEj97JhizmCqwYfovqL6uLtWj "view address")  
-Viacoin - [VbWrkv8aE1zpNWDJsKVT2aGH3nBLrj7pwB](https://chainz.cryptoid.info/via/address.dws?VbWrkv8aE1zpNWDJsKVT2aGH3nBLrj7pwB.htm "view address")
+Bitcoin - [13QZpiYuf1ztkWgg1PKLyipM9T5HrDsWAc](https://blockchain.info/address/13QZpiYuf1ztkWgg1PKLyipM9T5HrDsWAc "view address")  
